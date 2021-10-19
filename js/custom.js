@@ -114,9 +114,9 @@ const App = {
         this.me_fat_result = '太少了';
         this.fat_colorClass.push(this.colors[1]);
       };
-      if (10 <= this.me_protein && this.me_protein < 30) {
-        this.me_protein_result = '有點少';
-        this.protein_colorClass.push(this.colors[1]);
+      if (10 <= this.me_fat && this.me_fat < 30) {
+        this.me_fat_result = '有點少';
+        this.fat_colorClass.push(this.colors[1]);
       };
       if (30 <= this.me_fat && this.me_fat <= 55) {
         this.me_fat_result = '符合比例';
