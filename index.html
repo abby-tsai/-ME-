@@ -20,20 +20,20 @@
 
       <section id="app" class="form-section mb-2">
 
-        <p class="font-size-18 mb-2" style="font-weight: 600;">請填寫罐頭的營養成分：</p>
+        <p class="font-size-17 mb-2" style="font-weight: 600;">請填寫罐頭的營養成分：</p>
 
         <form action="">
           <div class="row">
             <div class="Block--6">
               <div class="group">
                 <label for="">蛋白質(%)</label>
-                <input type="tel" v-model="protein" placeholder="0">
+                <input type="number" v-model="protein" placeholder="0">
               </div>
             </div>
             <div class="Block--6">
               <div class="group">
                 <label for="">脂肪(%)</label>
-                <input type="tel" v-model="fat" placeholder="0">
+                <input type="number" v-model="fat" placeholder="0">
               </div>
             </div>
           </div>
@@ -41,13 +41,13 @@
             <div class="Block--6">
               <div class="group">
                 <label for="">纖維(%)</label>
-                <input type="tel" v-model="fiber" placeholder="0">
+                <input type="number" v-model="fiber" placeholder="0">
               </div>
             </div>
             <div class="Block--6">
               <div class="group">
                 <label for="">水分(%)</label>
-                <input type="tel" v-model="water" placeholder="0">
+                <input type="number" v-model="water" placeholder="0">
               </div>
             </div>
           </div>
@@ -55,15 +55,15 @@
             <div class="Block--6">
               <div class="group">
                 <label for="">灰份(%)</label>
-                <input type="tel" v-model="ash" placeholder="0">
+                <input type="number" v-model="ash" placeholder="0">
               </div>
             </div>
           </div>
           <div class="row">
-            <div class="Block--5">
+            <div class="Block--6">
               <button class="btn-no" type="button" @click.prevent="reset">重新輸入</button>
             </div>
-            <div class="Block--7">
+            <div class="Block--6">
               <button class="btn-base" type="button" @click.prevent="math">開始計算！</button>
             </div>
           </div>
@@ -74,7 +74,7 @@
         <div class="math-block" v-if="isOpen">
           <div class="row align-items-center mb-2">
             <div class="Block--6">
-              <p class="font-size-18 m-0" style="font-weight: 600;">碳水化合物(%)</p>
+              <p class="font-size-17 m-0" style="font-weight: 600;">碳水化合物(%)</p>
             </div>
             <div class="Block--6">
               <input type="text" readonly v-model="carbohydrate">
@@ -85,7 +85,7 @@
           </div>
           <div class="row align-items-center mb-2">
             <div class="Block--6">
-              <p class="font-size-18 m-0" style="font-weight: 600;">代謝能(kcal/100g)</p>
+              <p class="font-size-17 m-0" style="font-weight: 600;">代謝能(kcal/100g)</p>
             </div>
             <div class="Block--6">
               <input type="text" readonly v-model="me">
@@ -97,7 +97,7 @@
         </div>
 
         <div v-if="isOpen">
-          <p class="font-size-18 mb-1" style="font-weight: 600;">以下表格為計算結果：</p>
+          <p class="font-size-17 mb-1" style="font-weight: 600;">以下表格為計算結果：</p>
 
           <small class="font-size-14 mb-1 d-block">比例建議的數值為一般貓咪作為基準。</small>
 
