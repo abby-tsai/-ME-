@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>貓罐罐 ME 熱量比計算工具</title>
+  <link rel="stylesheet" href="style/custom.css">
+</head>
+
+<body>
+  <div class="row justify-content-center">
+    <div class="Block--12 Block--md-7">
+
+      <header class="text-center mb-4">
+        <h1 class="title">貓罐罐 ME 熱量比計算工具</h1>
+        <h2 class="subTitle">一起來計算罐頭的 ME 熱量比，<br>挑選出好的貓罐頭吧！</h2>
+      </header>
+
+      <section id="app" class="form-section mb-2">
+
+        <p class="font-size-18 mb-2" style="font-weight: 600;">請填寫罐頭的營養成分：</p>
+
+        <form action="">
+          <div class="row">
+            <div class="Block--6">
+              <div class="group">
+                <label for="">蛋白質(%)</label>
+                <input type="text" v-model="protein" placeholder="0">
+              </div>
+            </div>
+            <div class="Block--6">
+              <div class="group">
+                <label for="">脂肪(%)</label>
+                <input type="text" v-model="fat" placeholder="0">
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="Block--6">
+              <div class="group">
+                <label for="">纖維(%)</label>
+                <input type="text" v-model="fiber" placeholder="0">
+              </div>
+            </div>
+            <div class="Block--6">
+              <div class="group">
+                <label for="">水分(%)</label>
+                <input type="text" v-model="water" placeholder="0">
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="Block--6">
+              <div class="group">
+                <label for="">灰份(%)</label>
+                <input type="text" v-model="ash" placeholder="0">
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="Block--6">
+              <button class="btn-no" type="button" @click.prevent="reset">重新輸入</button>
+            </div>
+            <div class="Block--6">
+              <button class="btn-base" type="button" @click.prevent="math">計算結果</button>
+            </div>
+          </div>
+        </form>
+
+        <div class="pt-1 pb-2"></div>
+
+        <div class="math-block" v-if="isOpen">
+          <div class="row align-items-center mb-2">
+            <div class="Block--6">
+              <p class="font-size-18 m-0" style="font-weight: 600;">碳水化合物(%)</p>
+            </div>
+            <div class="Block--6">
+              <input type="text" readonly v-model="carbohydrate">
+            </div>
+            <div class="Block--12">
+              <small style="color: #656565;">碳水化合物 = 100％ - 蛋白質 - 脂肪 - 水分 - 灰份 - 纖維</small>
+            </div>
+          </div>
+          <div class="row align-items-center mb-2">
+            <div class="Block--6">
+              <p class="font-size-18 m-0" style="font-weight: 600;">代謝能(kcal/100g)</p>
+            </div>
+            <div class="Block--6">
+              <input type="text" readonly v-model="me">
+            </div>
+            <div class="Block--12">
+              <small style="color: #656565;">代謝能 = (蛋白質×3.5) + (脂肪×8.5) + (碳水化合物×3.5)</small>
+            </div>
+          </div>
+        </div>
+
+        <div v-if="isOpen">
+          <p class="font-size-18 mb-1" style="font-weight: 600;">以下表格為計算結果：</p>
+
+          <small class="font-size-14 mb-1 d-block">比例建議的數值為一般貓咪作為基準。</small>
+
+          <div class="result-block mb-1">
+            <table>
+              <thead>
+                <tr>
+                  <th></th>
+                  <th>蛋白質</th>
+                  <th>脂肪</th>
+                  <th>碳水化合物</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="bg-light">
+                  <td>比例建議</td>
+                  <td>50~60%</td>
+                  <td>30~55%</td>
+                  <td>10%以下</td>
+                </tr>
+                <tr>
+                  <td>罐頭 ME</td>
+                  <td :class="protein_colorClass">{{ me_protein }}%</td>
+                  <td :class="fat_colorClass">{{ me_fat }}%</td>
+                  <td :class="carbohydrate_colorClass">{{ me_carbohydrate }}%</td>
+                </tr>
+                <tr>
+                  <td>計算結論</td>
+                  <td :class="protein_colorClass">{{ me_protein_result }}</td>
+                  <td :class="fat_colorClass">{{ me_fat_result }}</td>
+                  <td :class="carbohydrate_colorClass">{{ me_carbohydrate_result }}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="note">
+          注意：<br>
+          保證分析都不是最精確的數值，所以才會出現最多X％、最低X％的現象，如果想計算出更準確的數值，建議跟廠商索取完整的資料。
+        </div>
+
+      </section>
+    </div>
+  </div>
+
+  <script src="js/jquery.min.js"></script>
+  <script src="js/feather.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/3.0.2/vue.global.js"></script>
+  <script src="js/custom.js"></script>
+
+</body>
+
+</html>
