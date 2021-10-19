@@ -102,7 +102,7 @@ const App = {
       };
       if (60 < this.me_protein && this.me_protein <= 80) {
         this.me_protein_result = '有點多';
-        this.protein_colorClass.push(this.colors[2]);
+        this.protein_colorClass.push(this.colors[0]);
       };
       if (this.me_protein > 80) {
         this.me_protein_result = '太多了';
@@ -124,7 +124,7 @@ const App = {
       };
       if (55 < this.me_fat && this.me_fat <= 75) {
         this.me_fat_result = '有點多';
-        this.fat_colorClass.push(this.colors[2]);
+        this.fat_colorClass.push(this.colors[0]);
       };
       if (this.me_fat > 75) {
         this.me_fat_result = '太多了';
@@ -146,7 +146,7 @@ const App = {
       };
       if (10 < this.me_carbohydrate && this.me_carbohydrate <= 15) {
         this.me_carbohydrate_result = '有點多';
-        this.carbohydrate_colorClass.push(this.colors[2]);
+        this.carbohydrate_colorClass.push(this.colors[0]);
       };
       if (this.me_carbohydrate > 15) {
         this.me_carbohydrate_result = '太多了';
