@@ -6018,6 +6018,11 @@ header .subTitle {
   text-align: center;
   font-size: 18px;
   border: 0;
+  border-radius: 4px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -o-border-radius: 4px;
 }
 
 .btn-no {
@@ -6028,6 +6033,11 @@ header .subTitle {
   text-align: center;
   font-size: 18px;
   border: 0;
+  border-radius: 4px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -o-border-radius: 4px;
 }
 
 /*end. header
